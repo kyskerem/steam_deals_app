@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:steam_deals_application/core/base/model/inavigation_router.dart';
+import 'package:steam_deals_application/features/store/view/store_view.dart';
 
 import '../../../features/deal_list/view/deals_view.dart';
 import '../../../features/home/view/home_view.dart';
@@ -16,12 +17,11 @@ class NavigationRouter extends INavigationRouter {
       case Routes.root:
         return _pageBuilder(const HomeView());
       case Routes.stores:
-        return _pageBuilder(const HomeView());
+        return _pageBuilder(const StoreView());
       case Routes.gameDetail:
         return _pageBuilder(const DealsView());
       default:
         throw IError('page is not defined');
-      //TODO:ERROR HANDLE
     }
   }
 
