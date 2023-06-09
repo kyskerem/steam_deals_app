@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:steam_deals_application/core/init/navigation/navigation_service.dart';
 
-class BaseViewModel {
+abstract class BaseViewModel {
   ///Initilazing in every baseview layer
-  late final BuildContext viewModelContext;
+  late BuildContext viewModelContext;
+  final navigator = NavigationService.instance;
 }
