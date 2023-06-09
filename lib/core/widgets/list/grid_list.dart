@@ -9,20 +9,20 @@ class GridList extends StatelessWidget {
   });
   final int itemCount;
   final Widget Function(BuildContext context, int index) onBuilder;
-  final _gridDelegate = const SliverGridDelegateWithFixedCrossAxisCount(
-    crossAxisCount: 2,
-    crossAxisSpacing: 20,
-    mainAxisSpacing: 20,
-  );
 
   @override
   Widget build(BuildContext context) {
+    const gridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
+      crossAxisCount: 2,
+      crossAxisSpacing: 20,
+      mainAxisSpacing: 20,
+    );
     return Padding(
       padding: const EdgeInsets.all(10),
       child: GridView.builder(
         itemCount: itemCount,
         physics: const BouncingScrollPhysics(),
-        gridDelegate: _gridDelegate,
+        gridDelegate: gridDelegate,
         itemBuilder: onBuilder,
       ),
     );

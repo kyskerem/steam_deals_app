@@ -2,5 +2,5 @@
 
 ## TARGET
 
-this app shows the deals on steam
-this app shows the available stores
+- this app shows the deals on steam
+- this app shows the available stores

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:steam_deals_application/core/constants/navigation/routes.dart';
+import 'package:steam_deals_application/core/constants/string/string_constants.dart';
+import 'package:steam_deals_application/core/extension/context_extension.dart';
 import 'package:steam_deals_application/core/init/navigation/navigation_service.dart';
 import 'package:steam_deals_application/core/widgets/button/button.dart';
 
@@ -17,15 +19,15 @@ class HomeView extends StatelessWidget {
               onPressed: () {
                 NavigationService.instance.pushNamed(Routes.gameDetail);
               },
-              child: const Text('Deals'),
+              child: const Text(StringConstants.deals),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 50),
+              margin: context.highPadding,
               child: Button(
                 onPressed: () {
                   NavigationService.instance.pushNamed(Routes.stores);
                 },
-                child: const Text('Stores'),
+                child: const Text(StringConstants.stores),
               ),
             )
           ],
