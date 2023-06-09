@@ -5,18 +5,14 @@ class GridList extends StatelessWidget {
   const GridList({
     required this.itemCount,
     required this.onBuilder,
+    required this.gridDelegate,
     super.key,
   });
   final int itemCount;
   final Widget Function(BuildContext context, int index) onBuilder;
-
+  final SliverGridDelegateWithFixedCrossAxisCount gridDelegate;
   @override
   Widget build(BuildContext context) {
-    const gridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
-      crossAxisCount: 2,
-      crossAxisSpacing: 20,
-      mainAxisSpacing: 20,
-    );
     return Padding(
       padding: const EdgeInsets.all(10),
       child: GridView.builder(
