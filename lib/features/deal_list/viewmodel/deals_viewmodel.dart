@@ -1,5 +1,5 @@
 import 'package:mobx/mobx.dart';
-import 'package:steam_deals_application/core/enum/network/api_path.dart';
+import 'package:steam_deals_application/core/enum/api/api_path.dart';
 import 'package:steam_deals_application/core/init/network/network_service.dart';
 import 'package:steam_deals_application/features/deal_list/model/deal_model.dart';
 

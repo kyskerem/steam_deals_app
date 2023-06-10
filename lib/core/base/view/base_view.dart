@@ -1,6 +1,12 @@
+import 'dart:async';
+
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:steam_deals_application/core/base/viewmodel/base_viewmodel.dart';
+import 'package:steam_deals_application/core/enum/lottie/lotties.dart';
 import 'package:steam_deals_application/core/init/navigation/navigation_service.dart';
+import 'package:steam_deals_application/core/view/error_view.dart';
 
 class BaseView<T extends BaseViewModel> extends StatefulWidget {
   const BaseView({
@@ -20,9 +26,35 @@ class BaseView<T extends BaseViewModel> extends StatefulWidget {
 
 class _BaseViewState<T extends BaseViewModel> extends State<BaseView<T>> {
   final navigator = NavigationService.instance;
+  final Connectivity _connectivity = Connectivity();
+  ConnectivityResult _connectionStatus = ConnectivityResult.none;
+  late StreamSubscription<ConnectivityResult> _connectivitySubscription;
+
+  void _updateConnectionStatus(ConnectivityResult status) {
+    setState(() {
+      _connectionStatus = status;
+    });
+  }
+
+  Future<void> initConnectivity() async {
+    late ConnectivityResult result;
+    try {
+      result = await _connectivity.checkConnectivity();
+    } on PlatformException catch (e) {
+      print("Couldn't check connectivity status error: $e");
+      return;
+    }
+    if (!mounted) {
+      return Future.value();
+    }
+    return _updateConnectionStatus(result);
+  }
 
   @override
   void initState() {
+    _connectivitySubscription =
+        _connectivity.onConnectivityChanged.listen(_updateConnectionStatus);
+    initConnectivity();
     super.initState();
     if (widget.onInit == null) return;
     widget.onInit!(widget.viewModel);
@@ -31,6 +63,7 @@ class _BaseViewState<T extends BaseViewModel> extends State<BaseView<T>> {
   @override
   void dispose() {
     super.dispose();
+    _connectivitySubscription.cancel();
     if (widget.onDispose == null) return;
     widget.onDispose!();
   }
@@ -38,6 +71,13 @@ class _BaseViewState<T extends BaseViewModel> extends State<BaseView<T>> {
   @override
   Widget build(BuildContext context) {
     widget.viewModel.viewModelContext = context;
-    return widget.builder(widget.viewModel, context);
+    if (_connectionStatus == ConnectivityResult.none) {
+      return ErrorView(
+        errorMessage: 'NO INTERNET CONNECTION',
+        lottiePath: Lotties.error.LottiePath,
+      );
+    } else {
+      return widget.builder(widget.viewModel, context);
+    }
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:steam_deals_application/core/base/view/base_view.dart';
+import 'package:steam_deals_application/core/enum/lottie/lotties.dart';
 import 'package:steam_deals_application/core/view/error_view.dart';
 import 'package:steam_deals_application/features/deal_lookup/viewmodel/deal_lookup_viewmodel.dart';
 
@@ -27,7 +28,10 @@ class DealLookupView extends StatelessWidget {
                       ? GameDealCard(deal: deal)
                       : const CircularProgressIndicator();
                 } else {
-                  return ErrorView(errorMessage: viewModel.errorMessage);
+                  return ErrorView(
+                    errorMessage: viewModel.errorMessage,
+                    lottiePath: Lotties.error.LottiePath,
+                  );
                 }
               },
             ),

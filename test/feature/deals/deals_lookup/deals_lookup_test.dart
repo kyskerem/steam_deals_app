@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:steam_deals_application/core/enum/network/api_path.dart';
+import 'package:steam_deals_application/core/enum/api/api_path.dart';
 import 'package:steam_deals_application/core/init/network/network_service.dart';
 
 import '../../../mock/model/deal_lookup/mock_deal_lookup_model.dart';
