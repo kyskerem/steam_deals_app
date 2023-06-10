@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
 import 'package:steam_deals_application/core/base/view/base_view.dart';
+import 'package:steam_deals_application/core/enum/lottie/lotties.dart';
 import 'package:steam_deals_application/core/view/error_view.dart';
 
 import '../viewmodel/deals_viewmodel.dart';
@@ -31,7 +32,10 @@ class DealsView extends StatelessWidget {
                         viewModel: viewModel,
                       );
               } else {
-                return ErrorView(errorMessage: viewModel.errorMessage);
+                return ErrorView(
+                  errorMessage: viewModel.errorMessage,
+                  lottiePath: Lotties.error.LottiePath,
+                );
               }
             },
           ),
