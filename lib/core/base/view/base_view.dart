@@ -3,10 +3,11 @@ import 'dart:async';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:steam_deals_application/core/base/viewmodel/base_viewmodel.dart';
-import 'package:steam_deals_application/core/enum/lottie/lotties.dart';
-import 'package:steam_deals_application/core/init/navigation/navigation_service.dart';
-import 'package:steam_deals_application/core/view/error_view.dart';
+
+import '../../enum/lottie/lotties.dart';
+import '../../init/navigation/navigation_service.dart';
+import '../../view/error_view.dart';
+import '../viewmodel/base_viewmodel.dart';
 
 class BaseView<T extends BaseViewModel> extends StatefulWidget {
   const BaseView({

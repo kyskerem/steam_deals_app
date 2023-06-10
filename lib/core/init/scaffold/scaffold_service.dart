@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:steam_deals_application/core/base/error/ierror.dart';
-import 'package:steam_deals_application/core/widgets/snackbar/toast.dart';
+
+import '../../base/error/ierror.dart';
+import '../../widgets/snackbar/toast.dart';
 
 @immutable
 class ScaffoldService {

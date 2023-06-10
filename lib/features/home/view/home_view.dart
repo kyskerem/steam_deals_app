@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:steam_deals_application/core/constants/navigation/routes.dart';
-import 'package:steam_deals_application/core/constants/string/string_constants.dart';
-import 'package:steam_deals_application/core/extension/context_extension.dart';
-import 'package:steam_deals_application/core/init/navigation/navigation_service.dart';
-import 'package:steam_deals_application/core/widgets/button/button.dart';
+import '../../../core/constants/navigation/routes.dart';
+import '../../../core/constants/string/string_constants.dart';
+import '../../../core/extension/context_extension.dart';
+import '../../../core/init/navigation/navigation_service.dart';
+import '../../../core/widgets/button/button.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});

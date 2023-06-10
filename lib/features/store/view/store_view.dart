@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:steam_deals_application/core/base/view/base_view.dart';
-import 'package:steam_deals_application/core/view/error_view.dart';
-import 'package:steam_deals_application/features/store/viewmodel/store_viewmodel.dart';
 
+import '../../../core/base/view/base_view.dart';
 import '../../../core/enum/lottie/lotties.dart';
+import '../../../core/view/error_view.dart';
+import '../viewmodel/store_viewmodel.dart';
 import '../widgets/store_list.dart';
 
 class StoreView extends StatelessWidget {

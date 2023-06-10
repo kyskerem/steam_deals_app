@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:steam_deals_application/core/init/navigation/navigation_router.dart';
-import 'package:steam_deals_application/core/init/navigation/navigation_service.dart';
-import 'package:steam_deals_application/core/init/scaffold/scaffold_service.dart';
+
+import 'core/init/navigation/navigation_router.dart';
+import 'core/init/navigation/navigation_service.dart';
+import 'core/init/scaffold/scaffold_service.dart';
 
 void main() => runApp(const MyApp());
 

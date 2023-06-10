@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:steam_deals_application/core/constants/api/api_constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../core/constants/api/api_constants.dart';
 import '../model/deal_lookup_model.dart';
 
 class GameDealCard extends StatelessWidget {

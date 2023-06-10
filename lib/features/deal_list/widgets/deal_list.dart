@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:steam_deals_application/core/extension/context_extension.dart';
-import 'package:steam_deals_application/features/deal_list/viewmodel/deals_viewmodel.dart';
-import 'package:steam_deals_application/features/deal_lookup/view/deal_lookup_view.dart';
 
+import '../../../core/extension/context_extension.dart';
 import '../../../core/widgets/list/grid_list.dart';
+import '../../deal_lookup/view/deal_lookup_view.dart';
 import '../model/deal_model.dart';
+import '../viewmodel/deals_viewmodel.dart';
 
 class DealsList extends StatelessWidget {
   const DealsList({

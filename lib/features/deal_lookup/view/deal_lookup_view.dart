@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:steam_deals_application/core/base/view/base_view.dart';
-import 'package:steam_deals_application/core/enum/lottie/lotties.dart';
-import 'package:steam_deals_application/core/view/error_view.dart';
-import 'package:steam_deals_application/features/deal_lookup/viewmodel/deal_lookup_viewmodel.dart';
+import '../../../core/base/view/base_view.dart';
+import '../../../core/enum/lottie/lotties.dart';
+import '../../../core/view/error_view.dart';
+import '../viewmodel/deal_lookup_viewmodel.dart';
 
 import '../widgets/deal_game_card.dart';
 

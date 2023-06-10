@@ -1,6 +1,7 @@
-import 'package:steam_deals_application/core/constants/api/api_constants.dart';
-import 'package:steam_deals_application/core/enum/api/api_path.dart';
 import 'package:vexana/vexana.dart';
+
+import '../../constants/api/api_constants.dart';
+import '../../enum/api/api_path.dart';
 
 class NetworkService<T extends INetworkModel<T>> {
   NetworkManager<T> _getService() {

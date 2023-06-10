@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:steam_deals_application/core/base/model/inavigation_router.dart';
-import 'package:steam_deals_application/features/deal_list/view/deals_view.dart';
-import 'package:steam_deals_application/features/store/view/store_view.dart';
 
+import '../../../features/deal_list/view/deals_view.dart';
 import '../../../features/home/view/home_view.dart';
+import '../../../features/store/view/store_view.dart';
 import '../../base/error/ierror.dart';
+import '../../base/model/inavigation_router.dart';
 import '../../constants/navigation/routes.dart';
 
 @immutable
