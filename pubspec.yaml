@@ -21,6 +21,7 @@ dependencies:
   very_good_analysis: ^5.0.0+1
   vexana: ^3.4.3
   url_launcher: ^6.1.11
+  connectivity_plus: ^2.3.5
 
 dev_dependencies:
   build_runner: ^2.4.5
