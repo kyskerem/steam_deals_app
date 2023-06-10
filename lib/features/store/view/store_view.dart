@@ -4,6 +4,7 @@ import 'package:steam_deals_application/core/base/view/base_view.dart';
 import 'package:steam_deals_application/core/view/error_view.dart';
 import 'package:steam_deals_application/features/store/viewmodel/store_viewmodel.dart';
 
+import '../../../core/enum/lottie/lotties.dart';
 import '../widgets/store_list.dart';
 
 class StoreView extends StatelessWidget {
@@ -26,7 +27,10 @@ class StoreView extends StatelessWidget {
                     ? const Center(child: CircularProgressIndicator())
                     : StoreList(storeList: storeList);
               } else {
-                return ErrorView(errorMessage: viewModel.errorMessage);
+                return ErrorView(
+                  errorMessage: viewModel.errorMessage,
+                  lottiePath: Lotties.error.LottiePath,
+                );
               }
             },
           ),
