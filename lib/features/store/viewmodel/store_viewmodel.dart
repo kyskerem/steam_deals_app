@@ -16,9 +16,17 @@ abstract class _StoreViewModelBase extends BaseViewModel with Store {
 
   @action
   Future<void> fetchStores() async {
-    final data = await _networkService.fetchData(ApiPath.stores, StoreModel());
-    if (data != null) {
-      storeList = data;
+    try {
+      changeLoading();
+      final data =
+          await _networkService.fetchData(ApiPath.stores, StoreModel());
+      if (data != null) {
+        storeList = data;
+        changeLoading();
+        return;
+      }
+    } catch (e) {
+      showError('failed fetchin stores');
     }
   }
 }
