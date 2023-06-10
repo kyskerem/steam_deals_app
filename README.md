@@ -1,6 +1,11 @@
 # steam_deals_application
 
-## TARGET
+- shows the store names
+- shows the steam deals
+- shows the game lookup
+- can launch metacritic page of the game
+- can launch steam page of the game
 
-- this app shows the deals on steam
-- this app shows the available stores
+## To-Do list
+
+- deals from other stores
