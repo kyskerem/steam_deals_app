@@ -4,5 +4,5 @@ import 'package:flutter/material.dart';
 abstract class Routes {
   static const root = '/';
   static const stores = '/stores';
-  static const gameDetail = '/gamedetail';
+  static const deals = '/deals';
 }

@@ -11,4 +11,10 @@ class NavigationService {
 
   Future<Object?>? pushNamed(String route, {Object? data}) =>
       _navigatorKey.currentState?.pushNamed(route, arguments: data);
+
+  Future<Widget?>? push(
+    Widget view,
+  ) =>
+      _navigatorKey.currentState
+          ?.push(MaterialPageRoute<Widget>(builder: (context) => view));
 }

@@ -17,7 +17,7 @@ class HomeView extends StatelessWidget {
           children: [
             Button(
               onPressed: () {
-                NavigationService.instance.pushNamed(Routes.gameDetail);
+                NavigationService.instance.pushNamed(Routes.deals);
               },
               child: const Text(StringConstants.deals),
             ),

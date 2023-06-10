@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
 import 'package:steam_deals_application/core/base/view/base_view.dart';
+import 'package:steam_deals_application/core/view/error_view.dart';
 
 import '../viewmodel/deals_viewmodel.dart';
 import '../widgets/deal_list.dart';
@@ -22,7 +23,16 @@ class DealsView extends StatelessWidget {
           body: Observer(
             builder: (_) {
               final dealList = viewModel.dealList;
-              return DealsList(dealList: dealList);
+              if (!viewModel.isError) {
+                return viewModel.isLoading == true
+                    ? const Center(child: CircularProgressIndicator())
+                    : DealsList(
+                        dealList: dealList,
+                        viewModel: viewModel,
+                      );
+              } else {
+                return ErrorView(errorMessage: viewModel.errorMessage);
+              }
             },
           ),
         );

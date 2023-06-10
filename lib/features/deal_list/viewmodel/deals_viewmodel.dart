@@ -14,13 +14,19 @@ abstract class _DealsViewModelBase extends BaseViewModel with Store {
 
   @observable
   List<DealModel> dealList = [];
-
   @action
   Future<void> fetchSteamDeals() async {
-    final data =
-        await _networkService.fetchData(ApiPath.steamDeals, DealModel());
-    if (data != null) {
-      dealList = data;
+    changeLoading();
+    try {
+      final data =
+          await _networkService.fetchData(ApiPath.steamDeals, DealModel());
+      if (data != null) {
+        dealList = data;
+        changeLoading();
+        return;
+      }
+    } catch (e) {
+      showError('Failed getting deals');
     }
   }
 }
