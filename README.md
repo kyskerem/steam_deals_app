@@ -11,7 +11,7 @@ This app uses cheapshark api(https://apidocs.cheapshark.com/)
 ## Packages
 
 - Json serializablee
-- Mobx:
+- Mobx
 - Very Good Analysis
 - Vexana
 - Dio
