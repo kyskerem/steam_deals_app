@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'mock_game_info.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(createToJson: false)
 class MockGameInfo {
   MockGameInfo({
     this.gameID,
@@ -22,7 +22,7 @@ class MockGameInfo {
     this.thumb,
   });
 
-  MockGameInfo fromJson(Map<String, dynamic> json) =>
+  factory MockGameInfo.fromJson(Map<String, dynamic> json) =>
       _$MockGameInfoFromJson(json);
   final String? gameID;
   final String? storeID;

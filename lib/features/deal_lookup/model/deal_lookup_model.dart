@@ -5,7 +5,9 @@ import 'game_info.dart';
 
 part 'deal_lookup_model.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(
+  createToJson: false,
+)
 class DealLookupModel extends INetworkModel<DealLookupModel> {
   DealLookupModel({this.gameInfo});
 
@@ -17,7 +19,6 @@ class DealLookupModel extends INetworkModel<DealLookupModel> {
 
   @override
   Map<String, dynamic>? toJson() {
-    // TODO: implement toJson
-    throw UnimplementedError();
+    return null;
   }
 }

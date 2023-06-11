@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:steam_deals_application/core/constants/api/api_constants.dart';
 
 import '../../../core/widgets/list/grid_list.dart';
 import '../model/stores.dart';
@@ -22,7 +23,8 @@ class StoreList extends StatelessWidget {
       itemCount: storeList.length,
       onBuilder: (context, index) {
         final element = storeList.elementAt(index);
-        final imageUrl = 'https://www.cheapshark.com/${element.images?.logo}';
+        final imageUrl =
+            '${ApiContants.cheapsharkBaseUrl}${element.images?.logo}';
         return _StoreGrid(imageUrl: imageUrl, element: element);
       },
     );

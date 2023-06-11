@@ -23,21 +23,3 @@ GameInfo _$GameInfoFromJson(Map<String, dynamic> json) => GameInfo(
       steamworks: json['steamworks'] as String?,
       thumb: json['thumb'] as String?,
     );
-
-Map<String, dynamic> _$GameInfoToJson(GameInfo instance) => <String, dynamic>{
-      'gameID': instance.gameID,
-      'storeID': instance.storeID,
-      'name': instance.name,
-      'steamAppID': instance.steamAppID,
-      'salePrice': instance.salePrice,
-      'retailPrice': instance.retailPrice,
-      'steamRatingText': instance.steamRatingText,
-      'steamRatingPercent': instance.steamRatingPercent,
-      'steamRatingCount': instance.steamRatingCount,
-      'metacriticScore': instance.metacriticScore,
-      'metacriticLink': instance.metacriticLink,
-      'releaseDate': instance.releaseDate,
-      'publisher': instance.publisher,
-      'steamworks': instance.steamworks,
-      'thumb': instance.thumb,
-    };

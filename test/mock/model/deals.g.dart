@@ -28,26 +28,3 @@ MockDealsModel _$MockDealsModelFromJson(Map<String, dynamic> json) =>
       dealRating: json['dealRating'] as String?,
       thumb: json['thumb'] as String?,
     );
-
-Map<String, dynamic> _$MockDealsModelToJson(MockDealsModel instance) =>
-    <String, dynamic>{
-      'internalName': instance.internalName,
-      'title': instance.title,
-      'metacriticLink': instance.metacriticLink,
-      'dealID': instance.dealID,
-      'storeID': instance.storeID,
-      'gameID': instance.gameID,
-      'salePrice': instance.salePrice,
-      'normalPrice': instance.normalPrice,
-      'isOnSale': instance.isOnSale,
-      'savings': instance.savings,
-      'metacriticScore': instance.metacriticScore,
-      'steamRatingText': instance.steamRatingText,
-      'steamRatingPercent': instance.steamRatingPercent,
-      'steamRatingCount': instance.steamRatingCount,
-      'steamAppID': instance.steamAppID,
-      'releaseDate': instance.releaseDate,
-      'lastChange': instance.lastChange,
-      'dealRating': instance.dealRating,
-      'thumb': instance.thumb,
-    };

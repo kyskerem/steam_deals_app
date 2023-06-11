@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:steam_deals_application/core/constants/string/string_constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/constants/api/api_constants.dart';
@@ -39,55 +40,61 @@ class GameDealCard extends StatelessWidget {
           ),
         ),
         const Spacer(),
-        ListTile(
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(
-                'Retail price: ${deal?.gameInfo?.retailPrice}\$',
-              ),
-              Text(
-                'Sale price: ${deal?.gameInfo?.salePrice}\$',
-              ),
-            ],
+        _informationsRow([
+          Text(
+            '${StringConstants.retailPrice}: ${deal?.gameInfo?.retailPrice}\$',
           ),
-        ),
-        ListTile(
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(
-                'Metacritic score: ${deal?.gameInfo?.metacriticScore}%',
-              ),
-              Text(
-                'Steam Rating: ${deal?.gameInfo?.steamRatingPercent}%',
-              ),
-            ],
+          Text(
+            '${StringConstants.salePrice}: ${deal?.gameInfo?.salePrice}\$',
           ),
-        ),
-        ListTile(
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              TextButton(
-                onPressed: () async {
-                  await _launcUrl(steamUrl);
-                },
-                child: const Text('Steam Page'),
-              ),
-              TextButton(
-                onPressed: () async {
-                  await _launcUrl(metacriticUrl);
-                },
-                child: const Text('Metacritic Page'),
-              ),
-            ],
+        ]),
+        _informationsRow([
+          Text(
+            '${StringConstants.metacriticStore}: ${deal?.gameInfo?.metacriticScore}%',
           ),
-        ),
+          Text(
+            '${StringConstants.steamRating}: ${deal?.gameInfo?.steamRatingPercent}%',
+          ),
+        ]),
+        _pageButtonRow(),
         const Spacer(
           flex: 2,
         )
       ],
+    );
+  }
+
+  ListTile _informationsRow(List<Widget> children) {
+    return ListTile(
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: children,
+      ),
+    );
+  }
+
+  ListTile _pageButtonRow() {
+    return ListTile(
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          _pageButton(true),
+          _pageButton(
+            false,
+          ),
+        ],
+      ),
+    );
+  }
+
+  TextButton _pageButton(bool isSteam) {
+    return TextButton(
+      onPressed: () async {
+        await _launcUrl(isSteam ? steamUrl : metacriticUrl);
+      },
+      child: Text(
+        isSteam ? StringConstants.steamPage : StringConstants.metacriticPage,
+      ),
     );
   }
 }

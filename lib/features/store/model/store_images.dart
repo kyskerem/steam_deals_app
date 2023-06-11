@@ -17,8 +17,7 @@ class StoreImagesModel extends INetworkModel<StoreImagesModel> {
 
   @override
   Map<String, dynamic>? toJson() {
-    // TODO: implement toJson
-    throw UnimplementedError();
+    return null;
   }
 
   @override

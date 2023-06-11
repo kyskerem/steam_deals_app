@@ -4,7 +4,7 @@ import 'package:vexana/vexana.dart';
 
 part 'deal_model.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(createToJson: false)
 class DealModel extends INetworkModel<DealModel> {
   final String? internalName;
   final String? title;

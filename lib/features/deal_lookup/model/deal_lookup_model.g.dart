@@ -10,10 +10,5 @@ DealLookupModel _$DealLookupModelFromJson(Map<String, dynamic> json) =>
     DealLookupModel(
       gameInfo: json['gameInfo'] == null
           ? null
-          : GameInfo().fromJson(json['gameInfo'] as Map<String, dynamic>),
+          : GameInfo.fromJson(json['gameInfo'] as Map<String, dynamic>),
     );
-
-Map<String, dynamic> _$DealLookupModelToJson(DealLookupModel instance) =>
-    <String, dynamic>{
-      'gameInfo': instance.gameInfo,
-    };

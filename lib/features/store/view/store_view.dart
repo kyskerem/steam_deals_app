@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:steam_deals_application/features/store/model/stores.dart';
 
 import '../../../core/base/view/base_view.dart';
 import '../../../core/enum/lottie/lotties.dart';
@@ -17,25 +18,28 @@ class StoreView extends StatelessWidget {
       onInit: (viewModel) {
         viewModel.fetchStores();
       },
-      builder: (viewModel, context) {
-        return Scaffold(
-          body: Observer(
-            builder: (_) {
-              final storeList = viewModel.storeList;
-              if (!viewModel.isError) {
-                return viewModel.isLoading
-                    ? const Center(child: CircularProgressIndicator())
-                    : StoreList(storeList: storeList);
-              } else {
-                return ErrorView(
-                  errorMessage: viewModel.errorMessage,
-                  lottiePath: Lotties.error.LottiePath,
-                );
-              }
-            },
-          ),
-        );
-      },
+      builder: _builder,
     );
+  }
+
+  Widget _builder(StoreViewModel viewModel, BuildContext context) => Scaffold(
+        body: Observer(
+          builder: (_) {
+            final storeList = viewModel.storeList;
+            if (!viewModel.isError) {
+              return _getView(viewModel, storeList);
+            } else {
+              return ErrorView(
+                errorMessage: viewModel.errorMessage,
+                lottiePath: Lotties.error.lottiePath,
+              );
+            }
+          },
+        ),
+      );
+  Widget _getView(StoreViewModel viewModel, List<StoreModel> storeList) {
+    return viewModel.isLoading
+        ? const Center(child: CircularProgressIndicator())
+        : StoreList(storeList: storeList);
   }
 }

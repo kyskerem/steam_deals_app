@@ -75,7 +75,7 @@ class _BaseViewState<T extends BaseViewModel> extends State<BaseView<T>> {
     if (_connectionStatus == ConnectivityResult.none) {
       return ErrorView(
         errorMessage: 'NO INTERNET CONNECTION',
-        lottiePath: Lotties.error.LottiePath,
+        lottiePath: Lotties.error.lottiePath,
       );
     } else {
       return widget.builder(widget.viewModel, context);

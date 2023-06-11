@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'game_info.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(createToJson: false)
 class GameInfo {
   GameInfo({
     this.gameID,
@@ -21,8 +21,11 @@ class GameInfo {
     this.steamworks,
     this.thumb,
   });
+  factory GameInfo.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$GameInfoFromJson(json);
 
-  GameInfo fromJson(Map<String, dynamic> json) => _$GameInfoFromJson(json);
   final String? gameID;
   final String? storeID;
   final String? name;

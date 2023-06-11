@@ -5,7 +5,7 @@ enum Lotties {
   const Lotties(this.value);
   final String value;
 
-  String get LottiePath {
+  String get lottiePath {
     return 'assets/lottie/$value.json';
   }
 }

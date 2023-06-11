@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:steam_deals_application/core/constants/string/string_constants.dart';
 
 import '../../../core/extension/context_extension.dart';
 import '../../../core/widgets/list/grid_list.dart';
@@ -51,21 +52,25 @@ class _GridCard extends StatelessWidget {
       child: Card(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(element.title ?? ''),
-            Padding(
-              padding: context.mediumPadding,
-              child: Image(
-                fit: BoxFit.cover,
-                image: NetworkImage(element.thumb ?? ''),
-              ),
-            ),
-            Text('Metacritic:${element.metacriticScore}'),
-            Text('Steam rate:${element.steamRatingPercent}'),
-            Text('Steam comments:${element.steamRatingCount}')
-          ],
+          children: _informationsColumn(context),
         ),
       ),
     );
+  }
+
+  List<Widget> _informationsColumn(BuildContext context) {
+    return [
+      Text(element.title ?? ''),
+      Padding(
+        padding: context.mediumPadding,
+        child: Image(
+          fit: BoxFit.cover,
+          image: NetworkImage(element.thumb ?? ''),
+        ),
+      ),
+      Text('${StringConstants.metacritic}:${element.metacriticScore}'),
+      Text('${StringConstants.steamRate}:${element.steamRatingPercent}'),
+      Text('${StringConstants.steamComments}:${element.steamRatingCount}')
+    ];
   }
 }

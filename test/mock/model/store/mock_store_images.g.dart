@@ -7,7 +7,8 @@ part of 'mock_store_images.dart';
 // **************************************************************************
 
 MockStoreImagesModel _$MockStoreImagesModelFromJson(
-        Map<String, dynamic> json) =>
+  Map<String, dynamic> json,
+) =>
     MockStoreImagesModel(
       json['banner'] as String,
       json['logo'] as String,

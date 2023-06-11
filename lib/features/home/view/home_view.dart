@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:steam_deals_application/core/widgets/button/button.dart';
+
 import '../../../core/constants/navigation/routes.dart';
 import '../../../core/constants/string/string_constants.dart';
-import '../../../core/extension/context_extension.dart';
 import '../../../core/init/navigation/navigation_service.dart';
-import '../../../core/widgets/button/button.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -21,15 +21,12 @@ class HomeView extends StatelessWidget {
               },
               child: const Text(StringConstants.deals),
             ),
-            Container(
-              margin: context.highPadding,
-              child: Button(
-                onPressed: () {
-                  NavigationService.instance.pushNamed(Routes.stores);
-                },
-                child: const Text(StringConstants.stores),
-              ),
-            )
+            Button(
+              onPressed: () {
+                NavigationService.instance.pushNamed(Routes.stores);
+              },
+              child: const Text(StringConstants.stores),
+            ),
           ],
         ),
       ),
