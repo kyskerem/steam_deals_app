@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:steam_deals_application/core/init/navigation/navigation_service.dart';
 import 'package:steam_deals_application/features/store/model/stores.dart';
 
 import '../../../core/base/view/base_view.dart';
@@ -22,7 +23,12 @@ class StoreView extends StatelessWidget {
     );
   }
 
-  Widget _builder(StoreViewModel viewModel, BuildContext context) => Scaffold(
+  Widget _builder(
+    StoreViewModel viewModel,
+    BuildContext context,
+    NavigationService navigator,
+  ) =>
+      Scaffold(
         body: Observer(
           builder: (_) {
             final storeList = viewModel.storeList;

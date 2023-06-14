@@ -20,7 +20,11 @@ class BaseView<T extends BaseViewModel> extends StatefulWidget {
   final T viewModel;
   final VoidCallback? onDispose;
   final void Function(T viewModel)? onInit;
-  final Widget Function(T viewModel, BuildContext context) builder;
+  final Widget Function(
+    T viewModel,
+    BuildContext context,
+    NavigationService navigator,
+  ) builder;
   @override
   _BaseViewState<T> createState() => _BaseViewState<T>();
 }
@@ -78,7 +82,7 @@ class _BaseViewState<T extends BaseViewModel> extends State<BaseView<T>> {
         lottiePath: Lotties.error.lottiePath,
       );
     } else {
-      return widget.builder(widget.viewModel, context);
+      return widget.builder(widget.viewModel, context, navigator);
     }
   }
 }

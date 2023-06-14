@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:steam_deals_application/core/init/navigation/navigation_service.dart';
 import 'package:steam_deals_application/features/deal_lookup/model/deal_lookup_model.dart';
 
 import '../../../core/base/view/base_view.dart';
@@ -22,7 +23,11 @@ class DealLookupView extends StatelessWidget {
     );
   }
 
-  Widget _builder(DealLookupViewModel viewModel, BuildContext context) =>
+  Widget _builder(
+    DealLookupViewModel viewModel,
+    BuildContext context,
+    NavigationService navigator,
+  ) =>
       Scaffold(
         body: Center(
           child: Observer(
